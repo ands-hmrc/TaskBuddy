@@ -12,7 +12,7 @@ public interface IHasKey<TKey> {
 	TKey Key { get; }
 }
 
-public class TaskItem : IHasKey<int> {
+public class TaskItem : IHasKey<Guid> {
 	public TaskItem( string name, string? description = null, params string[] categoryNames ) {
 		Name = name;
 		Description = description ?? string.Empty;
@@ -21,7 +21,7 @@ public class TaskItem : IHasKey<int> {
 
 	public TaskItem() { Name = string.Empty; Description = string.Empty; Categories = []; }
 		
-	public int Key { get; } = default;
+	public Guid Key { get; } = default;
 	public string Name { get; }
 	public string Description { get; }
 	public bool IsChecked { get; set; }
@@ -58,7 +58,7 @@ public class DataAccessProvider<T, TKey> : IDataAccessProvider<T, TKey> where T 
 	public IReadOnlyList<T> GetAll() => _items;
 }
 
-public class TaskProvider : DataAccessProvider<TaskItem, int> {
+public class TaskProvider : DataAccessProvider<TaskItem, Guid> {
 	public TaskProvider() {
 		_items = [
 			new ("Task 1","Do task 1", "Important"),

@@ -7,9 +7,9 @@ using TaskBuddy.ViewModels.Interfaces;
 
 namespace TaskBuddy.ViewModels;
 public class TaskIndexViewModel : ObservableObject, IBaseViewModel {
-	private readonly IDataAccessProvider<TaskItem, int> _dataProvider;
+	private readonly IDataAccessProvider<TaskItem, Guid> _dataProvider;
 
-	public TaskIndexViewModel(IDataAccessProvider<TaskItem, int> dataProvider) {
+	public TaskIndexViewModel(IDataAccessProvider<TaskItem, Guid> dataProvider) {
 		_dataProvider = dataProvider;
 		ToggleCompletedCommand = new RelayCommand<TaskItem>( ToggleCompleted );
 		EditTaskCommand = new RelayCommand<TaskItem>( EditTask );
