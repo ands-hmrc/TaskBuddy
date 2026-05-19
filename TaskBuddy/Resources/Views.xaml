@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:viewModels="clr-namespace:TaskBuddy.ViewModels"
+  xmlns:views="clr-namespace:TaskBuddy.Views">
+
+  <DataTemplate DataType="{x:Type viewModels:MainWindowViewModel}">
+    <views:MainWindowView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type viewModels:TaskIntroViewModel}">
+    <views:TaskIntroView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type viewModels:TaskIndexViewModel}">
+    <views:TaskIndexView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type viewModels:TaskFormViewModel}">
+    <views:TaskFormView />
+  </DataTemplate>
+
+</ResourceDictionary>
