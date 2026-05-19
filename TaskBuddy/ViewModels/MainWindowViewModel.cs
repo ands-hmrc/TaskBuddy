@@ -21,9 +21,9 @@ public class MainWindowViewModel : ObservableObject, IBaseViewModel {
 	public IBaseViewModel TaskIntroViewModel { get; }
 	public IBaseViewModel CurrentViewModel {
 		get => _currentViewModel;
-		private set => _currentViewModel = value; // to demonstrate lack of UI updates
+		//private set => _currentViewModel = value; // to demonstrate lack of UI updates
 		//private set { if ( _currentViewModel != value ) { _currentViewModel = value;  OnPropertyChanged( nameof( CurrentViewModel ) ); } } // update invoked
-		//private set => SetProperty( ref _currentViewModel, value );
+		private set => SetProperty( ref _currentViewModel, value );
 	}
 	public string Title => "Task Buddy";
 
