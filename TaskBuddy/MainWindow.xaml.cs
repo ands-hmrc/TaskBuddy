@@ -21,7 +21,7 @@ namespace TaskBuddy;
 /// </summary>
 public partial class MainWindow : Window {
 
-	public MainWindow( IBaseViewModel mainWindowViewModel ) {
+	public MainWindow( INavigableViewModel mainWindowViewModel ) {
 		InitializeComponent();
 		DataContext = mainWindowViewModel;
 		Loaded += ( _, __ ) => mainWindowViewModel.Load();

@@ -4,22 +4,22 @@ using TaskBuddy.Data;
 using TaskBuddy.ViewModels.Interfaces;
 
 namespace TaskBuddy.ViewModels;
-public class MainWindowViewModel : ObservableObject, IBaseViewModel {
-	private IBaseViewModel _currentViewModel;
+public class MainWindowViewModel : ObservableObject, INavigableViewModel {
+	private INavigableViewModel _currentViewModel;
 
 	public MainWindowViewModel() {
 		var dataProvider = new TaskProvider();
 		TaskIndexViewModel = new TaskIndexViewModel( dataProvider );
 		TaskFormViewModel = new TaskFormViewModel();
 		TaskIntroViewModel = new TaskIntroViewModel();
-		NavigateToCommand = new RelayCommand<IBaseViewModel>( NavigateTo );
+		NavigateToCommand = new RelayCommand<INavigableViewModel>( NavigateTo );
 	}
 
-	public IRelayCommand<IBaseViewModel> NavigateToCommand { get; }
-	public IBaseViewModel TaskIndexViewModel { get; }
-	public IBaseViewModel TaskFormViewModel { get; }
-	public IBaseViewModel TaskIntroViewModel { get; }
-	public IBaseViewModel CurrentViewModel {
+	public IRelayCommand<INavigableViewModel> NavigateToCommand { get; }
+	public INavigableViewModel TaskIndexViewModel { get; }
+	public INavigableViewModel TaskFormViewModel { get; }
+	public INavigableViewModel TaskIntroViewModel { get; }
+	public INavigableViewModel CurrentViewModel {
 		get => _currentViewModel;
 		//private set => _currentViewModel = value; // to demonstrate lack of UI updates
 		//private set { if ( _currentViewModel != value ) { _currentViewModel = value;  OnPropertyChanged( nameof( CurrentViewModel ) ); } } // update invoked
@@ -27,7 +27,7 @@ public class MainWindowViewModel : ObservableObject, IBaseViewModel {
 	}
 	public string Title => "Task Buddy";
 
-	public void NavigateTo( IBaseViewModel viewModel ) {
+	public void NavigateTo( INavigableViewModel viewModel ) {
 		if ( viewModel is null || viewModel == CurrentViewModel ) return;
 		if( CurrentViewModel is not null ) 
 			CurrentViewModel.Reset();

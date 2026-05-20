@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TaskBuddy.ViewModels.Interfaces;
-public interface IBaseViewModel {
+public interface INavigableViewModel {
 	string Title { get; }
 	void Load();
 	void Reset();

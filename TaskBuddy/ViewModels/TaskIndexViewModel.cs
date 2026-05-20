@@ -6,7 +6,7 @@ using TaskBuddy.Data;
 using TaskBuddy.ViewModels.Interfaces;
 
 namespace TaskBuddy.ViewModels;
-public class TaskIndexViewModel : ObservableObject, IBaseViewModel {
+public class TaskIndexViewModel : ObservableObject, INavigableViewModel {
 	private readonly IDataAccessProvider<TaskItem, Guid> _dataProvider;
 
 	public TaskIndexViewModel(IDataAccessProvider<TaskItem, Guid> dataProvider) {
