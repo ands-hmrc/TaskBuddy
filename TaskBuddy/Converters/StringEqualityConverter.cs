@@ -11,7 +11,7 @@ using TaskBuddy.Views;
 namespace TaskBuddy.Converters;
 public class StringEqualityConverter : IValueConverter {
 	public object Convert( object value, Type targetType, object parameter, CultureInfo culture ) {
-		if ( value is IBaseViewModel valueViewModel && parameter is string parameterText )
+		if ( value is INavigableViewModel valueViewModel && parameter is string parameterText )
 			return valueViewModel.Title == parameterText;
 
 		return false;
